@@ -19,7 +19,26 @@ void err(T arg, Ts &... args) {
 }
 
 void solve() {
-	
+	int n;cin >> n;
+	vector<int>a(n + 5);
+	for (int i = 1;i <= n;i++) cin >> a[i];
+	int ok = 0;
+	for (int i = 2;i <= n;i++) {
+		if (a[i - 1] > a[i]) {
+			if (!ok) {
+				if (a[1] < a[n]) {
+					cout << "NO" << '\n';
+					return ;		
+				}
+				else ok = 1;
+			}
+			else {
+				cout << "NO" << '\n';
+				return ;
+			}
+		}
+	}
+	cout << "YES" << '\n';
 }
 
 signed main()
